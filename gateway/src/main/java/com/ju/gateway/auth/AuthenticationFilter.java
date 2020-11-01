@@ -41,7 +41,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory {
             String userId = request.getHeaders().getFirst("userId");
 
 
-
+             // 简单认证，token不为空即可，复杂认证需要解析token中的用户名
             if (Strings.isEmpty(token)) {
                 response.setStatusCode(HttpStatus.UNAUTHORIZED);
                 return response.setComplete();
